@@ -3,10 +3,10 @@ import java.io.*;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 public class Menu {
-	static SecureRandom valorAleatorio = new SecureRandom(); //gera um valor aleatório não determinístico
+	static SecureRandom valorAleatorio = new SecureRandom(); //gera um valor aleatÃ³rio nÃ£o determinÃ­stico
 	private static Estado[] vetorDeEstados = new Estado[10];
 	
-	//A implementar: seção pontos turisticos;
+	//A implementar: seÃ§Ã£o pontos turisticos;
 	//A implementar: salva resultados incrementalmente;
 	
 	
@@ -18,7 +18,7 @@ public class Menu {
 		Scanner input = new Scanner(System.in);
 
 		/*cria uma string a partir de um bigInteger uniformemente
-		  distribuído baseado no número de bits indicado no parâmetro(30)*/
+		  distribuÃ­do baseado no nÃºmero de bits indicado no parÃ¢metro(30)*/
 		String senha = (new BigInteger(30,valorAleatorio).toString(32)); 
 		
 		//Insere senha gerada no arquivoSenha
@@ -36,22 +36,22 @@ public class Menu {
 
 		
 		System.out.println("Aprendendo o Brasil\n");
-		System.out.println(" Pressione a opção desejada: \n 1: Jogador \n 2: Avaliador");
+		System.out.println(" Pressione a opÃ§Ã£o desejada: \n 1: Jogador \n 2: Avaliador");
 		
-		//implementar: tratamento da entrada para seleção de perfil
+		//implementar: tratamento da entrada para seleÃ§Ã£o de perfil
 	//	try {
 			int opcao = input.nextInt();
 
 			if(opcao == 1){ 
 				//perfil jogador selecionado
-				//.*.*JOGA ISSO NUM METOTO
+				//Incluir num mÃ©todo
 				System.out.print("Insira seu nome:");
 				String nome = input.next();
 				InicializaEstados();	
 				System.out.print("\n\n\n\n\n\n\n");
-				System.out.println("Olá " + nome + "!" + "\n\n Escolha a opção desejada:\n ");
-				System.out.println("1. Capital ---> Estado\n2. Bandeira ---> Estado\n3. Visualizar Pontos Turísticos");
-				int areaJogo = input.nextInt();  //A implementar: validação da entrada
+				System.out.println("OlÃ¡ " + nome + "!" + "\n\n Escolha a opÃ§Ã£o desejada:\n ");
+				System.out.println("1. Capital ---> Estado\n2. Bandeira ---> Estado\n3. Visualizar Pontos TurÃ­sticos");
+				int areaJogo = input.nextInt();  //A implementar: validaÃ§Ã£o da entrada
 				int pontosCapital, pontosBandeira;
 				switch(areaJogo){
 					case(1):
@@ -63,12 +63,12 @@ public class Menu {
 						//pontosBandeira = IniciarBandeiraEstado();
 						break;
 					case(3):
-						System.out.print("Opção ainda não implementada nesta versão");
+						System.out.print("OpÃ§Ã£o ainda nÃ£o implementada nesta versÃ£o");
 						break;
 					default:
-						System.out.println("Opção inválida. Tente novamente");
+						System.out.println("OpÃ§Ã£o invÃ¡lida. Tente novamente");
 						main(args);
-				} //A implementar: sair do jogo/seção
+				} //A implementar: sair do jogo/seÃ§Ã£o
 			}
 			
 			else if(opcao == 2){
@@ -81,7 +81,7 @@ public class Menu {
 					ListaResultados();
 				}
 				else{
-					System.out.println("Usuário não autenticado. Tente novamente");
+					System.out.println("UsuÃ¡rio nÃ£o autenticado. Tente novamente");
 					main(args);
 				}
 			}
@@ -102,22 +102,22 @@ public class Menu {
 		
 		
 		
-		//tela inicial escolher se é jogador e botar nome ou avaliador e botar senha//fazer verificação de senha e salvar nome do estudante
-		//se senha ok -> puxa file de resultados já criado
-		//se nome -> abre tela com 3 opções de escolha terceira colocar como nao ainda resto -> mode DEMO
-		//se opção 1 -> capital estado
-		//se opção 2 -> bandeira estado
-		//abre tela de seção do jogo
-		//capital estado -> gera lista de nomes de estados com número correspondente ou digita sigla do estado e, depois de entrada a sigla gera 3 valores, 
+		//tela inicial escolher se Ã© jogador e botar nome ou avaliador e botar senha//fazer verificaÃ§Ã£o de senha e salvar nome do estudante
+		//se senha ok -> puxa file de resultados jÃ¡ criado
+		//se nome -> abre tela com 3 opÃ§Ãµes de escolha terceira colocar como nao ainda resto -> mode DEMO
+		//se opÃ§Ã£o 1 -> capital estado
+		//se opÃ§Ã£o 2 -> bandeira estado
+		//abre tela de seÃ§Ã£o do jogo
+		//capital estado -> gera lista de nomes de estados com nÃºmero correspondente ou digita sigla do estado e, depois de entrada a sigla gera 3 valores, 
 		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!puxa do vetor de estados????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		//o jogo em si
 		//mostrar lista de 8 estados
-		//antes de tudo escolher seção
+		//antes de tudo escolher seÃ§Ã£o
 
 		
 		
 		//juntar tudo
-		//gerar senha, salvar num arquivo, criar avaliador e sempre que tentar acessar esta área, verificar no arquivo se senha atribuida a ele é a mesma do file
+		//gerar senha, salvar num arquivo, criar avaliador e sempre que tentar acessar esta Ã¡rea, verificar no arquivo se senha atribuida a ele Ã© a mesma do file
 		
 	}
 	
@@ -143,7 +143,7 @@ public class Menu {
 			}
 			br.close();
 		}catch(IOException e){
-			System.out.print("Arquivo senha não encontrado. Contate o administrador");
+			System.out.print("Arquivo senha nÃ£o encontrado. Contate o administrador");
 		}
 		finally{
 			return token;
@@ -152,13 +152,13 @@ public class Menu {
 	}
 	
 	private static void ListaResultados(){
-		//Recupera resultados do arquivoResultados para usuário autenticado
+		//Recupera resultados do arquivoResultados para usuÃ¡rio autenticado
 		File arquivoResultados = new File("resultados.txt");
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(arquivoResultados));
 			String conteudo = null;
 			while((conteudo = br.readLine()) != null){
-				//percorre linhas do arquivo imprimindo conteúdo
+				//percorre linhas do arquivo imprimindo conteÃºdo
 				System.out.println(conteudo);
 			}
 			br.close();
@@ -168,7 +168,7 @@ public class Menu {
 	}
 	
 	private static void InicializaEstados(){
-		/*inserção de 10 estados - estágio protótipo*/
+		/*inserÃ§Ã£o de 10 estados - estÃ¡gio protÃ³tipo*/
 		Capital RJCapital = new Capital("Rio de Janeiro");
 		Bandeira RJBandeira = new Bandeira("RECTE REMPUBLICAM GERERE");
 		Estado RJ = new Estado("RJ",RJCapital, RJBandeira );
@@ -179,12 +179,12 @@ public class Menu {
 		Estado MG = new Estado("MG", MGCapital, MGBandeira);
 		vetorDeEstados[1] = MG;
 		
-		Capital SPCapital = new Capital("São Paulo");
+		Capital SPCapital = new Capital("SÃ£o Paulo");
 		Bandeira SPBandeira = new Bandeira("PRO BRASILIA FIANT EXIMIA");
 		Estado SP = new Estado("SP", SPCapital, SPBandeira);
 		vetorDeEstados[2] = SP;
 
-		Capital ESCapital = new Capital("Vitória");
+		Capital ESCapital = new Capital("VitÃ³ria");
 		Bandeira ESBandeira = new Bandeira("TRABALHA E CONFIA");
 		Estado ES = new Estado("ES", ESCapital, ESBandeira);
 		vetorDeEstados[3] = ES;
@@ -199,12 +199,12 @@ public class Menu {
 		Estado BA = new Estado("BA", BACapital, BABandeira);
 		vetorDeEstados[5] = BA;
 
-		Capital DFCapital = new Capital("Brasília");
+		Capital DFCapital = new Capital("BrasÃ­lia");
 		Bandeira DFBandeira = new Bandeira("VENTVRIS VENTIS");
 		Estado DF = new Estado("DF", DFCapital, DFBandeira);
 		vetorDeEstados[6] = DF;
 
-		Capital PACapital = new Capital("Belém");
+		Capital PACapital = new Capital("BelÃ©m");
 		Bandeira PABandeira = new Bandeira("SUB LEGE PROGREDIAMUR");
 		Estado PA = new Estado("PA", PACapital, PABandeira);
 		vetorDeEstados[7] = PA;
@@ -257,9 +257,9 @@ public class Menu {
 		System.out.println("Estado: " + estadosSelecionados[estadoEscolhido].getNomeEstado() );
 		System.out.println("Escolha a capital do " + estadosSelecionados[estadoEscolhido].getNomeEstado() + ": " );
 		
-		int EA1; //estado aleatório
+		int EA1; //estado aleatÃ³rio
 		int EA2;
-		//seleciona as capitais aleatórias para opções
+		//seleciona as capitais aleatÃ³rias para opÃ§Ãµes
 		int[] aux = new int[3]; 
 		aux = geraValoresNaoRepetidos(3, 4);
 		System.out.print("!!!AUX0 " + aux[0] + "\n" +"AUX1 " + aux[1] + "\nAUX2 " + aux[2]  );
@@ -286,7 +286,7 @@ public class Menu {
 		}
 		else System.out.print("Resposta Incorreta :(");
 		
-		/*Imprime de forma aleatoria as três opções de capitais baseado no valor de determinaOrdem
+		/*Imprime de forma aleatoria as trÃªs opÃ§Ãµes de capitais baseado no valor de determinaOrdem
 		
 		Random r = new Random();
 		int determinaOrdem = r.nextInt(3) + 0;
@@ -328,7 +328,7 @@ public class Menu {
 
 		}	
 */
-		System.out.print("Continuar? \n0: não\n1:sim");
+		System.out.print("Continuar? \n0: nÃ£o\n1:sim");
 		int continua = input.nextInt();
 		if(continua == 0){
 			return pontos;
