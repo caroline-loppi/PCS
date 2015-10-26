@@ -14,6 +14,10 @@ public class PontoTuristico {
 		this.pontoTuristico = pontoTuristico;
 	}
 	
+	public void imprimePontoTuristico(){
+		System.out.println(this.getPontoTuristico());
+	}
+	
 	
 
 }

@@ -1,61 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Estado {
-	private String nomeEstado;
-	private Capital capitalEstado;
-	private Bandeira bandeiraEstado;
-	private PontoTuristico[] pontosTuristicos;
-
-	public Estado(String nomeEstado, Capital capitalEstado, Bandeira bandeiraEstado){
-		//necessário popular nome do estado, capital e bandeira correspondente
-		this.nomeEstado = nomeEstado;
-		this.capitalEstado = capitalEstado;
-		this.bandeiraEstado = bandeiraEstado;
+	
+	private String nome;
+	private Capital capital;
+	private Bandeira bandeira;
+	private List <PontoTuristico> pontosTuristicos;
+	
+	public Estado(){
+		
 	}
 	
-	public String getNomeEstado() {
-		//retorna o nome do estado de tipo Estado do objeto em questão
-		return nomeEstado;
+	public Estado(String nome, String nomeCapital, String lemaBandeira){
+		this.nome = nome;
+		this.capital = new Capital(nomeCapital);
+		this.bandeira = new Bandeira(lemaBandeira);
+		this.pontosTuristicos = new ArrayList <PontoTuristico>();
 	}
 	
-	public void setNomeEstado(String nomeEstado) {
-		//altera o nome do estado do objeto de tipo Estado em questão
-		this.nomeEstado = nomeEstado;
+	public void adicionarPontoTuristico(String nomePontoTuristico){
+		pontosTuristicos.add(new PontoTuristico(nomePontoTuristico));
 	}
-
-	public String getCapitalEstado() {
-		//retorna o nome da capital do objeto de tipo Estado em questão
-		return capitalEstado.getNomeCapital();
+	public String getNome() {
+		return nome;
 	}
-
-	public void setCapitalEstado(String nomeCapital) {
-		//altera o nome da capital do objeto de tipo Estado em questão
-		capitalEstado.setNomeCapital(nomeCapital); 
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-
-	public String getBandeiraEstado() {
-		//retorna o lema da bandeira do objeto de tipo Estado em questão
-		return bandeiraEstado.getLema();
+	public Capital getCapital() {
+		return capital;
 	}
-
-	public void setBandeiraEstado(String lemaBandeira) {
-		//altera o lema da bandeira do objeto de tipo Estado em questão
-		bandeiraEstado.setLema(lemaBandeira);
+	public void setCapital(Capital capital) {
+		this.capital = capital;
 	}
-	
-	public PontoTuristico[] getPontoTuristico(){ 
-		//retorna o vetor de pontos turísticos para um dado objeto de tipo Estado
+	public Bandeira getBandeira() {
+		return bandeira;
+	}
+	public void setBandeira(Bandeira bandeira) {
+		this.bandeira = bandeira;
+	}
+	public List<PontoTuristico> getPontosTuristicos() {
 		return pontosTuristicos;
 	}
-	
-	public void setPontoTuristico(PontoTuristico[] pontosTuristicos){
-		//para um dado estado, popula o vetor de pontos turísticos com outro vetor já populado
-		for(int i=0;i<pontosTuristicos.length; i++){
-			this.pontosTuristicos[i] = pontosTuristicos[i];
-		}
+	public void setPontosTuristicos(List<PontoTuristico> pontosTuristicos) {
+		this.pontosTuristicos = pontosTuristicos;
 	}
-	
-	
-	
+
 	
 	
 	

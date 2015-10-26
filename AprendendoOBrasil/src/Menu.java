@@ -2,20 +2,29 @@ import java.util.*;
 import java.io.*;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+
 public class Menu {
+<<<<<<< Updated upstream
 	static SecureRandom valorAleatorio = new SecureRandom(); //gera um valor aleatÃ³rio nÃ£o determinÃ­stico
 	private static Estado[] vetorDeEstados = new Estado[10];
+=======
+	/*gera um valor aleatório não determinístico*/
+	static int pontos=0;
+	static int idBandeira = 0;
+	private static List <Estado> estados;
+>>>>>>> Stashed changes
 	
 	//A implementar: seÃ§Ã£o pontos turisticos;
 	//A implementar: salva resultados incrementalmente;
-	
-	
+	//A implementar: check ao lado do estado já corretamente correlacionado com capital
+	//A implementar: tratamento da entrada para seleção de perfil
+	//A implementar: sair do jogo/seção
 	
 	
 	public static void main(String[] args) {
-		
-		String token = null;
+		estados = new ArrayList <Estado>();
 		Scanner input = new Scanner(System.in);
+<<<<<<< Updated upstream
 
 		/*cria uma string a partir de um bigInteger uniformemente
 		  distribuÃ­do baseado no nÃºmero de bits indicado no parÃ¢metro(30)*/
@@ -29,11 +38,51 @@ public class Menu {
 			bw.close();
 		}catch(IOException e){
 			e.printStackTrace();
-		}
-		
-		
-		
+=======
+		Autenticador sessao = new Autenticador();
+		sessao.gerarSenha();
+		Engine engine = new Engine();
 
+		System.out.println("\nAprendendo o Brasil\n");
+		System.out.println(" Pressione a opção desejada: \n 1: Jogador \n 2: Avaliador");			
+		int opcao = input.nextInt();
+
+		if(opcao == 1){ 
+			/*perfil jogador selecionado*/
+			System.out.print("Insira seu nome:");
+			String nome = input.next();
+			inicializarEstados();	
+			
+			System.out.print("\n\n\n\n\n\n\n");
+			System.out.println("Olá " + nome + "!" + "\n\n Escolha a opção desejada:\n ");
+			System.out.println("1. Capital ---> Estado\n2. Bandeira ---> Estado\n3. Visualizar Pontos Turísticos");
+			
+			int areaJogo = input.nextInt(); 
+			int pontosCapital, pontosBandeira;
+			pontos = 0;
+			switch(areaJogo){
+			case(1):
+				pontosCapital = engine.iniciarCapitalEstado(pontos, estados);
+				System.out.print("Sua pontuação: " + pontosCapital);
+				main(args);
+				break;
+			case(2):
+				pontosBandeira = engine.iniciarBandeiraEstado(pontos, 0, estados);
+				System.out.print("Sua pontuação: " + pontosBandeira);	
+				main(args);
+				break;
+			case(3):
+				engine.carregaPontosTuristicos(estados);
+				main(args);
+				break;
+			default:
+				System.out.println("Opção inválida. Tente novamente");
+				main(args);
+			} 
+>>>>>>> Stashed changes
+		}
+
+<<<<<<< Updated upstream
 		
 		System.out.println("Aprendendo o Brasil\n");
 		System.out.println(" Pressione a opÃ§Ã£o desejada: \n 1: Jogador \n 2: Avaliador");
@@ -119,18 +168,32 @@ public class Menu {
 		//juntar tudo
 		//gerar senha, salvar num arquivo, criar avaliador e sempre que tentar acessar esta Ã¡rea, verificar no arquivo se senha atribuida a ele Ã© a mesma do file
 		
+=======
+		else if(opcao == 2){
+			/*perfil avaliador selecionado*/
+			System.out.println("\n\nAvaliador? Digite sua senha");
+			String senhaParaValidar = input.next();
+
+			boolean autenticado = sessao.validarSenha(senhaParaValidar);
+			if(autenticado == true){
+				ListaResultados();
+			}
+			else{
+				System.out.println("Usuário não autenticado. Tente novamente");
+				main(args);
+			}
+			System.out.println("Sair? Digite 1");
+			int sair = input.nextInt();
+			if(sair == 1){
+				main(args);
+			}
+			
+		}		
+>>>>>>> Stashed changes
 	}
 	
-	public static boolean ValidaSenha(String senhaAValidar){
-		//Validador de senha
-		String token = RecuperaSenha();
-		if (senhaAValidar.equals(token) == true)
-			return true;
-		else 
-			return false;
-		
-	}
 	
+<<<<<<< Updated upstream
 	private static String RecuperaSenha(){
 		//Recupera senha do arquivoSenha
 
@@ -148,17 +211,27 @@ public class Menu {
 		finally{
 			return token;
 		}
+=======
+>>>>>>> Stashed changes
 	
-	}
+	
 	
 	private static void ListaResultados(){
+<<<<<<< Updated upstream
 		//Recupera resultados do arquivoResultados para usuÃ¡rio autenticado
+=======
+		/*Recupera resultados do arquivoResultados para usuário autenticado*/
+>>>>>>> Stashed changes
 		File arquivoResultados = new File("resultados.txt");
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(arquivoResultados));
 			String conteudo = null;
 			while((conteudo = br.readLine()) != null){
+<<<<<<< Updated upstream
 				//percorre linhas do arquivo imprimindo conteÃºdo
+=======
+				/*percorre linhas do arquivo imprimindo conteúdo*/
+>>>>>>> Stashed changes
 				System.out.println(conteudo);
 			}
 			br.close();
@@ -167,6 +240,7 @@ public class Menu {
 			}
 	}
 	
+<<<<<<< Updated upstream
 	private static void InicializaEstados(){
 		/*inserÃ§Ã£o de 10 estados - estÃ¡gio protÃ³tipo*/
 		Capital RJCapital = new Capital("Rio de Janeiro");
@@ -219,7 +293,34 @@ public class Menu {
 		Estado PI = new Estado("PI", PICapital, PIBandeira);
 		vetorDeEstados[9] = PI;
 
+=======
+	private static void inicializarEstados(){
+
+		//this.estados = new ArrayList <Estado>();
+		Estado RJ = new Estado("RJ","Rio de Janeiro", "RECTE REMPUBLICAM GERERE" );
+		Estado MG = new Estado("MG", "Belo Horizonte", "LIBERTAS QUAE SERA TAMEM");		
+		Estado SP = new Estado("SP", "São Paulo", "PRO BRASILIA FIANT EXIMIA");
+		Estado ES = new Estado("ES", "Vitória", "TRABALHA E CONFIA");		
+		Estado TO = new Estado("TO", "Palmas", "CO YVY ORE RETAMA");				
+		Estado BA = new Estado("BA","Salvador", "PER ARDUA SURGO");
+		Estado DF = new Estado("DF", "Brasília", "VENTVRIS VENTIS");
+		Estado PA = new Estado("PA", "Belém", "SUB LEGE PROGREDIAMUR");
+		Estado AC = new Estado("AC", "Rio Branco", "NEC LUCEO PLURIBUS IMPAR");
+		Estado PI = new Estado("PI", "Teresina", "IMPAVIDUM FERIENT RUINAE");
+		estados.add(RJ);
+		estados.add(MG);
+		estados.add(SP);
+		estados.add(ES);
+		estados.add(TO);
+		estados.add(BA);
+		estados.add(DF);
+		estados.add(PA);
+		estados.add(AC);
+		estados.add(PI);
+>>>>>>> Stashed changes
 	}
+	
+	/*
 	public static int[] geraValoresNaoRepetidos(int quantidade, int maxValor){
 		int[] evitaRedundancia = new int[quantidade];
 		int posic = 0;
@@ -227,7 +328,7 @@ public class Menu {
 		Random r = new Random();
 		while(posic<quantidade-1){
 			int numeroAleatorio = r.nextInt(maxValor+1) + 0;
-			for(int i=0; i<posic;i++){
+			for(int i=0; i<=posic;i++){
 				if(evitaRedundancia[i] == numeroAleatorio){
 					flag = 1;
 					break;
@@ -241,9 +342,10 @@ public class Menu {
 		return evitaRedundancia;
 
 	}
-
+	*/
 	
 
+<<<<<<< Updated upstream
 	public static int IniciarCapitalEstado(int pontos){
 		Scanner input = new Scanner(System.in);
 		System.out.print("Escolha o estado\n");
@@ -339,5 +441,9 @@ public class Menu {
 		return 0;
 	}
 	
+=======
+
+
+>>>>>>> Stashed changes
 
 }
